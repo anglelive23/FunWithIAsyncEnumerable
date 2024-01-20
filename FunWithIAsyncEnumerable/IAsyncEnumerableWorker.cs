@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AsyncAwaitBestPractices;
 
 namespace FunWithIAsyncEnumerable
 {
@@ -11,12 +6,7 @@ namespace FunWithIAsyncEnumerable
     {
         public IAsyncEnumerableWorker()
         {
-            Work();
-        }
-
-        public async void Work()
-        {
-            await PrintResults();
+            PrintResults().SafeFireAndForget();
         }
 
         public async Task PrintResults()
@@ -32,7 +22,8 @@ namespace FunWithIAsyncEnumerable
         {
             for (int i = 0; i < 1500; i++)
             {
-                await Task.Delay(5000);
+                // Simulate server call
+                await Task.Delay(1000);
                 yield return i;
             }
         }

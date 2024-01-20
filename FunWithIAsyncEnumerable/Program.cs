@@ -1,10 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-using FunWithIAsyncEnumerable;
+﻿using FunWithIAsyncEnumerable;
 
 // IAsyncEnumerable
-var iAsyncEnumerable = new IAsyncEnumerableWorker();
+var iAsyncEnumerableWorker = new IAsyncEnumerableWorker();
 
-// Old ways
+// Old Ways
 //var oldWorker = new OldWorker();
 
 Console.ReadKey();
